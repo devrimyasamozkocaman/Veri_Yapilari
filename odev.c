@@ -26,7 +26,7 @@ void non_recursive_preorder(int *dizi, int eleman_sayisi){
 	for (i=0; i<eleman_sayisi; i++){
 		struct node *dugum = (struct node *) malloc(sizeof(struct node));
     	if (dugum == NULL) {
-        	printf("Heapte bu düðüm için yer ayrýlamadý \n");
+        	printf("Heapte bu dugum icin yer ayrilamadi \n");
         	exit(1);}
         dugum->icerik =*(dizi+i);
     	dugum->left = NULL;
@@ -47,15 +47,15 @@ void non_recursive_preorder(int *dizi, int eleman_sayisi){
         if(*(dizi+i) < dugum2->icerik) dugum2->left = dugum;
         else dugum2->right = dugum;
 
-}  //buraya kadar olan kýsým ikili arama aðacý oluþturup düðümlerine diziden aldýðý elemanlarý yerleþtirdi.
+}  //buraya kadar olan kisim ikili arama agaci olusturup dugumlerine diziden aldigi elemanlari yerlestirdi.
 
-	struct node *kok;                                                     //iteratif preorder baþlangýcý.
+	struct node *kok;                                                     //iteratif preorder baslangici.
 	struct node *temp;
 	kok=(*tree)->root;
 	if(kok==NULL){
         return;
     }
-    int *dizim= (int*)malloc(eleman_sayisi*sizeof(int));        // aðacýn tüm düðümlerini preorder olarak gezerek düðümlerin "icerik" deðerlerini stack yardýmýyla dizim dizisine yerleþtirecek.
+    int *dizim= (int*)malloc(eleman_sayisi*sizeof(int));        // agacin tum dugumlerini preorder olarak gezerek dugumlerin "icerik" degerlerini stack yardimiyla dizim dizisine yerlestirecek.
     struct stack *stack1= (struct stack*)malloc(sizeof(struct stack));
     stack1->capacity = eleman_sayisi;
     stack1->top=-1;
@@ -94,5 +94,4 @@ void non_recursive_preorder(int *dizi, int eleman_sayisi){
 int main() {
 		int dizi[10]={80,8,30,90,5,3,15,7,22,85};
 		non_recursive_preorder(dizi, 10);
-		int k;
 }
